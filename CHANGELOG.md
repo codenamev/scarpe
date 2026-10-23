@@ -31,6 +31,7 @@ straightforward as possible.
 - `edit_box.insert(text)` and `edit_line.insert(text)` put text in at the caret, over any selection, as one undo step (ledger G18, proposed)
 - `scarpe package --native --opens TYPE` declares the files Finder may open with an app; each one, the file that launched it included, reaches its `drop` blocks (ledger H11, proposed)
 - `drop { |path| }` on the app or a slot hears each file dropped on a native window (ledger H11, proposed); `scarpe peek --drop PATH` and Shoes-Spec's `drop_file(path)` drop one headless
+- `scarpe package --app-version VERSION` sets the version a macOS package shows in Finder (`CFBundleShortVersionString` and `CFBundleVersion`); without it, 1.0.0 as before
 ### Bugs Fixed
 - #569 link(click: "/path") now triggers internal navigation via visit(); paths like "/foo" also fall back to page(:foo) if no URL route matches
 - Support for `class MyApp < Shoes` inheritance pattern with URL routing

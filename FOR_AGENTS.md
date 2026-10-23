@@ -643,6 +643,8 @@ bundle exec ruby exe/scarpe package ~/my_app/my_app.rb --native --dmg \
   (`net.daringfireball.markdown`, `public.plain-text`) or an extension (`md`). Without it Finder
   says the app "cannot open files in the Markdown format". Each file reaches the app's `drop`
   blocks, the one that launched the app included.
+- `--app-version 1.2.0` is the version Finder's Get Info shows; without it every build says 1.0.0.
+  Give each release its own.
 - `--icon` takes a `.png` (turned into `.icns` with `sips` and `iconutil`) or an `.icns`. A
   path that does not exist is skipped without an error, so look for `Converted PNG to ICNS` in
   the output.
