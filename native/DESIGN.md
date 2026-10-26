@@ -169,7 +169,7 @@ Rust processes `req`s after an implicit flush of everything received before them
 | user action | event | target | args |
 |---|---|---|---|
 | click Button, Check, Radio, Link | `click` | that id | `[]`, on release over the same drawable (Check/Radio: Lacci toggles and echoes `checked`; Rust shows the echo, it does not toggle on its own). Return or Space on a focused button, check or radio clicks it too (ledger G9) |
-| edit EditLine / EditBox | `change` | that id | `[new_text]` on every edit. Lacci echoes `props {text}`: apply idempotently, keep caret. Echoes can trail later edits, so any text the field reported and has not seen echoed yet counts as an echo |
+| edit EditLine / EditBox | `change` | that id | `[new_text]` on every edit; an EditBox adds `{cursor, autocorrect}`: the caret as a UTF-8 byte offset, and false for undo, redo and `replace_checked` (docs/SCARPE_FEATURES.md). Lacci echoes `props {text}`: apply idempotently, keep caret. Echoes can trail later edits, so any text the field reported and has not seen echoed yet counts as an echo |
 | Return in a focused EditLine (no Control, Option, Command or Shift) | `finish` | that id | `[]`, for `edit_line.finish = proc` (Shoes 3.2.15, ledger G16). An EditBox takes Return as a new line |
 | pick in ListBox (popup, or Up/Down while focused) | `change` | that id | `[item_string]` |
 | pointer enters / leaves a drawable | `hover` / `leave` | that id | `[]`, on transitions only, for every drawable in the hovered chain |

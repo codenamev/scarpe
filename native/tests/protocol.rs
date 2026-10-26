@@ -105,7 +105,8 @@ fn edit_box_takes_newlines() {
     h.feed(&app(300, 200, &[create(3, "EditBox", 2, json!({"text": ""}))]));
     h.value(json!({"op": "click", "target": {"id": 3}}));
     let (evs, _) = h.req(json!({"op": "type", "text": "a\nb"}));
-    assert_eq!(named(&events(&evs), "change").last().unwrap().2, json!(["a\nb"]));
+    // An edit box's change also says where the caret is and whether the edit may be corrected.
+    assert_eq!(named(&events(&evs), "change").last().unwrap().2, json!(["a\nb", {"cursor": 3, "autocorrect": true}]));
 }
 
 #[test]
